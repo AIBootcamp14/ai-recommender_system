@@ -1,0 +1,49 @@
+# The path of input dataset.
+data_path : '../data'
+data_save_path: './data'
+USER_ID_FIELD: user_idx
+ITEM_ID_FIELD: item_idx
+TIME_FIELD: event_time
+# Users whose number of interactions is in the interval will be retained.
+user_inter_num_interval: "[5,Inf)"
+item_inter_num_interval: "[5,Inf)"
+# Items whose number of interactions is in the interval will be retained.
+load_col: 
+  inter: ['user_idx', 'item_idx', 'event_time']
+
+n_layers: 2
+n_heads: 4
+inner_size: 256
+attribute_hidden_size: [128]
+hidden_dropout_prob: 0.5
+attn_dropout_prob: 0.3
+hidden_act: 'gelu'
+layer_norm_eps: 1e-12
+initializer_range: 0.02
+pooling_mode: 'sum'
+loss_type: 'BPR'
+fusion_type: gate
+lamdas: [10]
+attribute_predictor: linear
+train_batch_size : 4096
+epochs : 20
+stopping_step : 5
+
+
+# Maximum length of each generated sequence. Defaults to 50.
+MAX_ITEM_LIST_LENGTH: 50
+eval_args: 
+  split: 
+    LS: 
+      valid_and_test
+  group_by: user 
+  # the data will be grouped by the column of USER_ID_FIELD and split in user dimension.
+  order: TO 
+  # sort the data by the column of TIME_FIELD in ascending order and the split them in this order.
+  mode: full 
+  # full means evaluating the model on the set of all items.
+    
+metrics : ['Recall','NDCG']
+topk: 10
+valid_metric: NDCG@10
+checkpoint_dir' : './check_point'

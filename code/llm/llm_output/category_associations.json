@@ -1,0 +1,244 @@
+{
+  "apparel.belt": {
+    "complementary": [
+      "apparel.jacket",
+      "apparel.trousers",
+      "apparel.jeans",
+      "apparel.shirt"
+    ],
+    "substitute": []
+  },
+  "apparel.costume": {
+    "complementary": [
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.dress",
+      "apparel.jumper"
+    ]
+  },
+  "apparel.dress": {
+    "complementary": [
+      "apparel.jacket",
+      "apparel.shoes",
+      "apparel.scarf"
+    ],
+    "substitute": [
+      "apparel.jumper",
+      "apparel.skirt"
+    ]
+  },
+  "apparel.glove": {
+    "complementary": [
+      "apparel.jacket",
+      "apparel.scarf"
+    ],
+    "substitute": [
+      "apparel.scarf"
+    ]
+  },
+  "apparel.jacket": {
+    "complementary": [
+      "apparel.shirt",
+      "apparel.trousers",
+      "apparel.jeans",
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.tshirt"
+    ]
+  },
+  "apparel.jeans": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.jacket",
+      "apparel.belt",
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.trousers",
+      "apparel.short"
+    ]
+  },
+  "apparel.jumper": {
+    "complementary": [
+      "apparel.jeans",
+      "apparel.trousers",
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.dress",
+      "apparel.tshirt"
+    ]
+  },
+  "apparel.pajamas": {
+    "complementary": [
+      "apparel.underwear",
+      "apparel.sock"
+    ],
+    "substitute": []
+  },
+  "apparel.scarf": {
+    "complementary": [
+      "apparel.jacket",
+      "apparel.glove"
+    ],
+    "substitute": []
+  },
+  "apparel.shirt": {
+    "complementary": [
+      "apparel.trousers",
+      "apparel.jeans",
+      "apparel.belt",
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.tshirt"
+    ]
+  },
+  "apparel.shoes": {
+    "complementary": [
+      "apparel.sock",
+      "apparel.trousers",
+      "apparel.dress",
+      "apparel.shirt"
+    ],
+    "substitute": [
+      "apparel.shoes.slipons",
+      "apparel.shoes.sandals"
+    ]
+  },
+  "apparel.shoes.ballet_shoes": {
+    "complementary": [
+      "apparel.dress",
+      "apparel.skirt"
+    ],
+    "substitute": [
+      "apparel.shoes.slipons"
+    ]
+  },
+  "apparel.shoes.espadrilles": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.short",
+      "apparel.skirt"
+    ],
+    "substitute": [
+      "apparel.shoes.sandals",
+      "apparel.shoes.slipons"
+    ]
+  },
+  "apparel.shoes.keds": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.jeans",
+      "apparel.skirt"
+    ],
+    "substitute": [
+      "apparel.shoes.slipons",
+      "apparel.shoes.espadrilles"
+    ]
+  },
+  "apparel.shoes.moccasins": {
+    "complementary": [
+      "apparel.trousers",
+      "apparel.shirt"
+    ],
+    "substitute": [
+      "apparel.shoes.slipons"
+    ]
+  },
+  "apparel.shoes.sandals": {
+    "complementary": [
+      "apparel.short",
+      "apparel.dress",
+      "apparel.skirt"
+    ],
+    "substitute": [
+      "apparel.shoes.espadrilles",
+      "apparel.shoes.slipons"
+    ]
+  },
+  "apparel.shoes.slipons": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.jeans",
+      "apparel.dress"
+    ],
+    "substitute": [
+      "apparel.shoes.sandals",
+      "apparel.shoes.ballet_shoes"
+    ]
+  },
+  "apparel.shoes.step_ins": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.jeans",
+      "apparel.short"
+    ],
+    "substitute": [
+      "apparel.shoes.slipons"
+    ]
+  },
+  "apparel.short": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.shoes.sandals",
+      "apparel.belt"
+    ],
+    "substitute": [
+      "apparel.trousers",
+      "apparel.jeans"
+    ]
+  },
+  "apparel.skirt": {
+    "complementary": [
+      "apparel.tshirt",
+      "apparel.dress",
+      "apparel.shoes.ballet_shoes"
+    ],
+    "substitute": [
+      "apparel.dress",
+      "apparel.jumper"
+    ]
+  },
+  "apparel.sock": {
+    "complementary": [
+      "apparel.shoes",
+      "apparel.pajamas",
+      "apparel.underwear"
+    ],
+    "substitute": []
+  },
+  "apparel.trousers": {
+    "complementary": [
+      "apparel.shirt",
+      "apparel.jacket",
+      "apparel.belt",
+      "apparel.shoes"
+    ],
+    "substitute": [
+      "apparel.jeans",
+      "apparel.short"
+    ]
+  },
+  "apparel.tshirt": {
+    "complementary": [
+      "apparel.jeans",
+      "apparel.trousers",
+      "apparel.shoes",
+      "apparel.jacket"
+    ],
+    "substitute": [
+      "apparel.shirt",
+      "apparel.jumper"
+    ]
+  },
+  "apparel.underwear": {
+    "complementary": [
+      "apparel.pajamas",
+      "apparel.sock"
+    ],
+    "substitute": []
+  }
+}
