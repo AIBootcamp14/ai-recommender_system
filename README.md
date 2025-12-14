@@ -6,7 +6,7 @@
 
 ### 목표
 - **NDCG@10 최적화**: 사용자별 Top-10 아이템 추천 품질 향상
-- **현재 최고 성능**: 0.0922 (ALS Optimized v1)
+- **현재 최고 성능**: 0.1185 (SASRec v1)
 
 ### 문제 정의
 사용자의 과거 행동(view, cart, purchase)을 기반으로 구매 가능성이 높은 아이템 10개를 추천하는 문제
@@ -105,18 +105,31 @@ purchase:  0.02%  (구매)
 | Two-Stage | ALS + LightGBM Rerank | 0.0697 | -19.3% |
 | Item2Vec | ALS + Word2Vec | 0.0858 | -0.58% |
 | **ALS Opt v1** | **factors=64 + User Seg** | **0.0922** | **+6.8%** |
+| ALS Time Decay | Decay Rate=0.01 | 0.0968 | +4.9% |
+| ALS Time Decay | Decay Rate=0.005 | 0.0947 | -2.1% (vs 0.01) |
+| ALS Time Decay | Decay Rate=0.02 | 0.1006 | +3.9% (vs 0.01) |
+| ALS Time Decay | Decay Rate=0.05 | 0.1052 | +4.6% (vs 0.02) |
+| **ALS Time Decay** | **Decay Rate=0.1** | **0.1067** | **+1.4% (Best)** |
+| ALS Time Decay | Decay Rate=0.2 | 0.1052 | -1.4% (vs 0.1) |
+| ALS Time Decay | Decay Rate=0.5 | 0.0985 | -6.4% (vs 0.1) |
+| **SASRec v1** | **Transformer Seq (Ep 5)** | **0.1185** | **+11.0% (vs ALS)** |
 
 ### 성능 추이
 
 ```
 NDCG@10
   │
-0.095│                              ★ ALS Opt v1 (0.0922)
-  │
+0.105│                              ☆ Time Decay 0.05 (0.1052)
+  │                                           ★ Time Decay 0.1 (0.1067)
+0.100│                              ☆ Time Decay 0.2 (0.1052)
+  │                              ☆ Time Decay 0.02 (0.1006)
+0.095│                              ☆ Time Decay 0.01 (0.0968)
+  │                              ☆ Time Decay 0.005 (0.0947)
+  │                              ☆ Opt v1 (0.0922)
 0.090│
+  │  ● Baseline (0.0863)  ◆ Ontology v4 (0.0872)
+0.085│                    ○ Item2Vec (0.0858)
   │
-0.085│  ● Baseline (0.0863)  ◆ Ontology v4 (0.0872)
-  │                    ○ Item2Vec (0.0858)
 0.080│
   │
 0.070│                          ✗ Two-Stage (0.0697)
@@ -128,7 +141,9 @@ NDCG@10
 
 1. **ALS 파라미터 튜닝이 가장 효과적**: factors 32→64로 +6% 이상 개선
 2. **User Segmentation**: Light 사용자에게 인기도 기반 추천이 효과적
-3. **복잡한 하이브리드의 한계**: Item2Vec, Markov, Two-Stage 모두 성능 하락
+4. **Time Decay 최적점 발견**: Decay Rate 0.1에서 정점(0.1067)
+5. **Deep Learning Shift**: 단순 협업 필터링(ALS)의 한계를 Transformer(SASRec)로 돌파. (+11%)
+   - 순차적 패턴(Sequence) 학습의 중요성 입증.
 
 ---
 
@@ -206,16 +221,35 @@ python code/optuna_als.py --n_trials 50
 
 ### 12/14 - 최적화 및 실험
 - Item2Vec, Markov Chain, Two-Stage 실험 (실패)
-- **ALS Optimized + User Segmentation → 0.0922 (Best!)**
+- **ALS Optimized + User Segmentation → 0.0922**
+- **Time Decay (Recency) 적용 → 0.0968 (Best so far)**
+  - Decay=0.01 (0.0968) > Decay=0.005 (0.0947)
+- **강력한 Time Decay (0.05) → 0.1052**
+- **Time Decay 최적화 (0.1) → 0.1067 (Final Best)**
+  - 0.2, 0.5 등 과도한 감쇠는 성능 하락 확인
+
+### 12/15 - 딥러닝(Sequential) 도입
+- **SASRec (Self-Attentive Sequential Recommendation) → 0.1185 (SOTA)**
+  - ALS의 한계(단순 공기반)를 넘어 순서(Sequence) 맥락 파악 성공
+  - Baseline(0.0863) 대비 **+37.3%** 대폭 향상
 
 ---
 
-## 향후 계획
+## 향후 계획 (Road to 0.3)
 
-1. **factors=128 테스트**: 더 높은 임베딩 차원
-2. **Popularity Boost 튜닝**: 0.15, 0.2 등 다양한 가중치
-3. **Neural Collaborative Filtering**: 딥러닝 기반 접근
-4. **LightFM**: 하이브리드 추천 라이브러리 활용
+1. **SASRec 고도화 (Target: 0.15)**
+   - Epoch 증가 (10~20)
+   - Hidden Unit 확장 (64 -> 128)
+   - Max Length 증가 (50 -> 100)
+   - Pre-training (Next Item Prediction 외에 Masked Item Prediction 추가)
+
+2. **Graph Neural Networks (Target: 0.20)**
+   - LightGCN 도입: 유저-아이템 그래프 구조 학습
+   - Multi-Modal: 이미지/텍스트 정보 통합
+
+3. **Reranking & Ensemble (Target: 0.30)**
+   - Real-time Reranking (Two-Tower)
+   - ALS + SASRec + LightGCN 앙상블
 
 ---
 
