@@ -3,6 +3,11 @@
 ## 현재 상태
 - **Baseline (ALS)**: 0.0852
 - **Optuna 튜닝 후**: 0.0863 (+1.3%)
+- **SASRec (Proxy Labeling)**: 0.1219 (+41.3%) 🚀
+- **Ensemble (ALS+SASRec)**: 0.1187 (ALS가 오히려 점수를 깎음 📉)
+- **Rerank (Hard Negative)**: 0.1178 (AUC는 높으나 실제 성능 하락 📉)
+- **Time-Filter (30 days)**: 0.1132 (데이터 과도한 축소로 인한 정보 손실 📉)
+- **Score Ensemble (SASRec 0.7 + ALS 0.3)**: 0.1354 (+57.1%) 🏆 NEW BEST
 
 ---
 
@@ -94,3 +99,17 @@ python recbole_dataset.py
 python train_sasrec.py
 python inference_sasrec.py --model_file ./saved/SASRec-*.pth
 ```
+
+---
+
+## 개발 환경 이슈 및 해결 (Environment Troubleshooting)
+
+### 1. PyTorch MPS (Apple Silicon) 호환성 문제
+- **증상**: SASRec 등 Transformer 기반 모델 실행 시 `NotImplementedError: The operator 'aten::_nested_tensor_from_mask_left_aligned' ...` 에러 발생.
+- **원인**: PyTorch MPS 백엔드에서 아직 Transformer의 일부 마스킹 연산을 지원하지 않음.
+- **해결책**: 실행 시 환경 변수 `PYTORCH_ENABLE_MPS_FALLBACK=1`을 설정하여 CPU 폴백을 활성화해야 함.
+- **사용 예시**:
+```bash
+PYTORCH_ENABLE_MPS_FALLBACK=1 python sasrec_proxy.py --epochs 20 --min_view 3
+```
+- **비고**: 이 설정을 적용하면 일부 연산이 CPU에서 돌아서 느려질 수 있으나, 실행 불가 상태는 해결됨.

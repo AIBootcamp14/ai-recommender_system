@@ -6,7 +6,7 @@
 
 ### 목표
 - **NDCG@10 최적화**: 사용자별 Top-10 아이템 추천 품질 향상
-- **현재 최고 성능**: 0.1185 (SASRec v1)
+- **현재 최고 성능**: 0.1354 (Score Ensemble) 🏆
 
 ### 문제 정의
 사용자의 과거 행동(view, cart, purchase)을 기반으로 구매 가능성이 높은 아이템 10개를 추천하는 문제
@@ -113,18 +113,31 @@ purchase:  0.02%  (구매)
 | ALS Time Decay | Decay Rate=0.2 | 0.1052 | -1.4% (vs 0.1) |
 | ALS Time Decay | Decay Rate=0.5 | 0.0985 | -6.4% (vs 0.1) |
 | **SASRec v1** | **Transformer Seq (Ep 5)** | **0.1185** | **+11.0% (vs ALS)** |
+| **SASRec Proxy** | **Proxy Labeling (View>=3)** | **0.1219** | **+41.2% (vs ALS)** |
+| **Score Ensemble** | **SASRec(0.7)+ALS(0.3)** | **0.1354** | **+57.1% (Best)** 🏆 |
 
 ### 성능 추이
 
 ```
 NDCG@10
   │
+0.135│                                                    ★ Score Ensemble (0.1354)
+  │
+0.130│
+  │
+0.125│
+  │                                           ☆ SASRec Proxy (0.1219)
+0.120│                              ☆ SASRec v1 (0.1185)
+  │
+0.115│
+  │
+0.110│                              ☆ Time Decay 0.1 (0.1067)
+  │
 0.105│                              ☆ Time Decay 0.05 (0.1052)
-  │                                           ★ Time Decay 0.1 (0.1067)
-0.100│                              ☆ Time Decay 0.2 (0.1052)
-  │                              ☆ Time Decay 0.02 (0.1006)
+  │
+0.100│                              ☆ Time Decay 0.02 (0.1006)
+  │
 0.095│                              ☆ Time Decay 0.01 (0.0968)
-  │                              ☆ Time Decay 0.005 (0.0947)
   │                              ☆ Opt v1 (0.0922)
 0.090│
   │  ● Baseline (0.0863)  ◆ Ontology v4 (0.0872)
@@ -133,8 +146,8 @@ NDCG@10
 0.080│
   │
 0.070│                          ✗ Two-Stage (0.0697)
-  │___________________________________________
-      12/10   12/12   12/13   12/14
+  │_______________________________________________________
+      12/10   12/12   12/13   12/14   12/15
 ```
 
 ### 주요 발견
@@ -193,13 +206,55 @@ python code/als_optimized.py \
 
 ### 하이퍼파라미터 튜닝
 
-```bash
 python code/optuna_als.py --n_trials 50
+```
+
+> 자세한 튜닝 과정은 [optuna_01.md](optuna_01.md) 참조
+
+
+---
+
+## Advanced Models: 희소 데이터 극복 (Sparsity Challenge)
+
+구매 전환율이 **0.02%**에 불과한 희소 데이터(Sparse Data) 문제를 해결하기 위해 적용된 고도화 전략입니다.
+이 전략을 통해 Baseline(0.0863) 대비 **+57% 성능 향상(0.1354)**을 달성했습니다.
+
+### 1. SASRec with Proxy Labeling (추천)
+구매 데이터만으로는 학습이 불가능하여, **"3회 이상 조회(View)"**를 구매 의도가 있는 **'대비 정답(Proxy Label)'**으로 간주하여 학습합니다.
+
+- **점수:** 0.1219
+- **실행:**
+```bash
+# Mac(MPS) 사용 시 환경변수 필수
+PYTORCH_ENABLE_MPS_FALLBACK=1 python sasrec_proxy.py --epochs 20 --min_view 3
+```
+- **출력:** `../out/output_sasrec_proxy.csv`
+
+### 2. ALS with Time Decay
+오래된 데이터의 가중치를 낮추는 Time Decay를 적용하여 최신 트렌드를 반영합니다.
+
+- **점수:** 0.1067
+- **실행:**
+```bash
+python als_time_decay.py --decay_rate 0.1 --output output_als_decay_0.1.csv
+```
+
+### 3. Score Ensemble (Final Best 🏆)
+단순 등수 합(Rank Fusion)이 아닌, 모델의 **확신도(Score/Probability)**를 가중 합산하는 방식입니다.
+
+- **조합:** `SASRec Proxy (70%)` + `ALS Time Decay (30%)`
+- **점수:** **0.1354 (New Best)**
+- **실행:**
+```bash
+python score_ensemble.py \
+    --files ../out/output_sasrec_proxy.csv ../out/output_als_decay_0.1.csv \
+    --weights 0.7 0.3 \
+    --output ../out/output_score_ensemble.csv
 ```
 
 ---
 
-## 진행 과정
+## 성능 향상 팁
 
 ### 12/10 - 기초 모델 구축
 - EDA 수행 및 데이터 특성 파악
@@ -228,10 +283,14 @@ python code/optuna_als.py --n_trials 50
 - **Time Decay 최적화 (0.1) → 0.1067 (Final Best)**
   - 0.2, 0.5 등 과도한 감쇠는 성능 하락 확인
 
-### 12/15 - 딥러닝(Sequential) 도입
-- **SASRec (Self-Attentive Sequential Recommendation) → 0.1185 (SOTA)**
-  - ALS의 한계(단순 공기반)를 넘어 순서(Sequence) 맥락 파악 성공
-  - Baseline(0.0863) 대비 **+37.3%** 대폭 향상
+### 12/15 - 딥러닝(Sequential) 및 희소성 극복
+- **SASRec (Self-Attentive Sequential Recommendation) 도입**
+  - 단순 협업 필터링의 한계 극복, 순서(Sequence) 맥락 파악
+- **Proxy Labeling 적용**: "3회 이상 View"를 정답으로 간주하여 데이터 증강
+  - 0.1219 (+41%) 달성
+- **Score Ensemble (Final)**
+  - SASRec Proxy + ALS Time Decay 결합
+  - **0.1354 (Baseline 대비 +57%) 달성 🏆**
 
 ---
 
