@@ -6,7 +6,7 @@
 
 ### 목표
 - **NDCG@10 최적화**: 사용자별 Top-10 아이템 추천 품질 향상
-- **현재 최고 성능**: 0.1354 (Score Ensemble) 🏆
+- **현재 최고 성능**: 0.1379 (MD Reranker v1) 🏆
 
 ### 문제 정의
 사용자의 과거 행동(view, cart, purchase)을 기반으로 구매 가능성이 높은 아이템 10개를 추천하는 문제
@@ -114,14 +114,16 @@ purchase:  0.02%  (구매)
 | ALS Time Decay | Decay Rate=0.5 | 0.0985 | -6.4% (vs 0.1) |
 | **SASRec v1** | **Transformer Seq (Ep 5)** | **0.1185** | **+11.0% (vs ALS)** |
 | **SASRec Proxy** | **Proxy Labeling (View>=3)** | **0.1219** | **+41.2% (vs ALS)** |
-| **Score Ensemble** | **SASRec(0.7)+ALS(0.3)** | **0.1354** | **+57.1% (Best)** 🏆 |
+| Score Ensemble | SASRec(0.6)+ALS(0.4) | 0.1374 | +59.2% |
+| **MD Reranker v1** | **Score Ensemble + MD Rules** | **0.1379** | **+59.8% (Final Best)** 🏆 |
 
 ### 성능 추이
 
 ```
 NDCG@10
   │
-0.135│                                                    ★ Score Ensemble (0.1354)
+0.138│                                                    ★ MD Reranker v1 (0.1379) 🏆
+0.137│                                                    ☆ Score Ensemble (0.1374)
   │
 0.130│
   │
@@ -147,7 +149,7 @@ NDCG@10
   │
 0.070│                          ✗ Two-Stage (0.0697)
   │_______________________________________________________
-      12/10   12/12   12/13   12/14   12/15
+      12/10   12/12   12/13   12/14   12/15   12/16
 ```
 
 ### 주요 발견
@@ -157,6 +159,8 @@ NDCG@10
 4. **Time Decay 최적점 발견**: Decay Rate 0.1에서 정점(0.1067)
 5. **Deep Learning Shift**: 단순 협업 필터링(ALS)의 한계를 Transformer(SASRec)로 돌파. (+11%)
    - 순차적 패턴(Sequence) 학습의 중요성 입증.
+6. **Ensemble Balance**: SASRec(개인화) 6 : ALS(전역성) 4 비율에서 최적 성능. 희소 데이터에서는 전역 정보 보정이 필수적임.
+7. **MD Reranker 효과**: 규칙 기반 후처리로 +0.36% 추가 개선 (0.1374 → 0.1379)
 
 ---
 
@@ -206,6 +210,7 @@ python code/als_optimized.py \
 
 ### 하이퍼파라미터 튜닝
 
+```bash
 python code/optuna_als.py --n_trials 50
 ```
 
@@ -217,7 +222,7 @@ python code/optuna_als.py --n_trials 50
 ## Advanced Models: 희소 데이터 극복 (Sparsity Challenge)
 
 구매 전환율이 **0.02%**에 불과한 희소 데이터(Sparse Data) 문제를 해결하기 위해 적용된 고도화 전략입니다.
-이 전략을 통해 Baseline(0.0863) 대비 **+57% 성능 향상(0.1354)**을 달성했습니다.
+이 전략을 통해 Baseline(0.0863) 대비 **+57% 성능 향상(0.1374)**을 달성했습니다.
 
 ### 1. SASRec with Proxy Labeling (추천)
 구매 데이터만으로는 학습이 불가능하여, **"3회 이상 조회(View)"**를 구매 의도가 있는 **'대비 정답(Proxy Label)'**으로 간주하여 학습합니다.
@@ -242,13 +247,13 @@ python als_time_decay.py --decay_rate 0.1 --output output_als_decay_0.1.csv
 ### 3. Score Ensemble (Final Best 🏆)
 단순 등수 합(Rank Fusion)이 아닌, 모델의 **확신도(Score/Probability)**를 가중 합산하는 방식입니다.
 
-- **조합:** `SASRec Proxy (70%)` + `ALS Time Decay (30%)`
-- **점수:** **0.1354 (New Best)**
+- **조합:** `SASRec Proxy (60%)` + `ALS Time Decay (40%)`
+- **점수:** **0.1374 (New Best)**
 - **실행:**
 ```bash
 python score_ensemble.py \
     --files ../out/output_sasrec_proxy.csv ../out/output_als_decay_0.1.csv \
-    --weights 0.7 0.3 \
+    --weights 0.6 0.4 \
     --output ../out/output_score_ensemble.csv
 ```
 
@@ -288,9 +293,14 @@ python score_ensemble.py \
   - 단순 협업 필터링의 한계 극복, 순서(Sequence) 맥락 파악
 - **Proxy Labeling 적용**: "3회 이상 View"를 정답으로 간주하여 데이터 증강
   - 0.1219 (+41%) 달성
-- **Score Ensemble (Final)**
+- **Score Ensemble**
   - SASRec Proxy + ALS Time Decay 결합
-  - **0.1354 (Baseline 대비 +57%) 달성 🏆**
+  - 0.1374 달성
+
+### 12/16 - MD Reranker (Final Best 🏆)
+- **MD Reranker v1 도입**: 규칙 기반 후처리로 추가 개선
+  - 카테고리/브랜드/가격 매칭 규칙 적용
+  - **0.1379 (Baseline 대비 +59.8%) 달성 🏆**
 
 ---
 

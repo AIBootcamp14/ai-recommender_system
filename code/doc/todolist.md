@@ -8,6 +8,9 @@
 - **Rerank (Hard Negative)**: 0.1178 (AUC는 높으나 실제 성능 하락 📉)
 - **Time-Filter (30 days)**: 0.1132 (데이터 과도한 축소로 인한 정보 손실 📉)
 - **Score Ensemble (SASRec 0.7 + ALS 0.3)**: 0.1354 (+57.1%) 🏆 NEW BEST
+- **Hybrid Rerank (Co-view)**: 0.1104 (개인화 점수 왜곡으로 인한 하락 📉)
+- **Score Ensemble (8:2)**: 0.1329 (SASRec 비중 과다 📉)
+- **Score Ensemble (6:4)**: 0.1374 (+4.5% vs 7:3) 🏆 FINAL BEST
 
 ---
 
