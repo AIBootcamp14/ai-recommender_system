@@ -1,0 +1,239 @@
+{
+  "categories": [
+    {
+      "id": "beauty_and_personal_care",
+      "name": "Beauty & Personal Care",
+      "description": "Skincare, cosmetics, and personal grooming products",
+      "subcategories": [
+        "skincare",
+        "makeup",
+        "fragrances",
+        "hair care"
+      ],
+      "typical_brands": [
+        "shiseido",
+        "smashbox",
+        "bio-oil"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "fashion_apparel",
+      "name": "Fashion Apparel",
+      "description": "Clothing for men, women, and children",
+      "subcategories": [
+        "casual wear",
+        "formal wear",
+        "activewear",
+        "children's clothing"
+      ],
+      "typical_brands": [
+        "calvinklein",
+        "ralphlauren",
+        "carters"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "description": "Consumer electronics including gadgets and accessories",
+      "subcategories": [
+        "smartphones",
+        "laptops",
+        "audio equipment",
+        "wearables"
+      ],
+      "typical_brands": [
+        "huawei",
+        "msi",
+        "jbl"
+      ],
+      "price_range": "mid to high"
+    },
+    {
+      "id": "home_and_kitchen",
+      "name": "Home & Kitchen",
+      "description": "Appliances, cookware, and home decor",
+      "subcategories": [
+        "kitchen appliances",
+        "home decor",
+        "furniture"
+      ],
+      "typical_brands": [
+        "josephjoseph",
+        "janome",
+        "beurer"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "sports_and_outdoors",
+      "name": "Sports & Outdoors",
+      "description": "Equipment and apparel for outdoor activities and sports",
+      "subcategories": [
+        "outdoor gear",
+        "fitness equipment",
+        "team sports"
+      ],
+      "typical_brands": [
+        "decathlon",
+        "garmin",
+        "dcshoes"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "toys_and_games",
+      "name": "Toys & Games",
+      "description": "Toys, games, and educational products for children",
+      "subcategories": [
+        "action figures",
+        "board games",
+        "educational toys"
+      ],
+      "typical_brands": [
+        "bondibon",
+        "smartrike",
+        "playmobil"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "health_and_wellness",
+      "name": "Health & Wellness",
+      "description": "Products for health, fitness, and wellness",
+      "subcategories": [
+        "vitamins",
+        "fitness trackers",
+        "wellness devices"
+      ],
+      "typical_brands": [
+        "beurer",
+        "garmin",
+        "hpe"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "description": "Car accessories, tools, and equipment",
+      "subcategories": [
+        "car accessories",
+        "tools",
+        "maintenance"
+      ],
+      "typical_brands": [
+        "ryobi",
+        "milwaukee",
+        "garmin"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "pet_supplies",
+      "name": "Pet Supplies",
+      "description": "Products for pet care and accessories",
+      "subcategories": [
+        "pet food",
+        "toys",
+        "grooming"
+      ],
+      "typical_brands": [
+        "sheba",
+        "petmate",
+        "friskies"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "books_and_media",
+      "name": "Books & Media",
+      "description": "Books, music, and media products",
+      "subcategories": [
+        "books",
+        "music",
+        "movies"
+      ],
+      "typical_brands": [
+        "penguin",
+        "universal",
+        "sony"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "jewelry_and_accessories",
+      "name": "Jewelry & Accessories",
+      "description": "Fashion and fine jewelry, watches, and accessories",
+      "subcategories": [
+        "fashion jewelry",
+        "watches",
+        "handbags"
+      ],
+      "typical_brands": [
+        "bvlgari",
+        "swatch",
+        "tiffany"
+      ],
+      "price_range": "mid to high"
+    },
+    {
+      "id": "baby_and_kids",
+      "name": "Baby & Kids",
+      "description": "Products for babies and children including clothing and accessories",
+      "subcategories": [
+        "baby gear",
+        "children's clothing",
+        "toys"
+      ],
+      "typical_brands": [
+        "babycare",
+        "carters",
+        "seventeenkids"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture",
+      "description": "Home and office furniture products",
+      "subcategories": [
+        "living room",
+        "bedroom",
+        "office"
+      ],
+      "typical_brands": [
+        "ikea",
+        "ashley",
+        "sauder"
+      ],
+      "price_range": "low to high"
+    },
+    {
+      "id": "gardening_and_outdoor",
+      "name": "Gardening & Outdoor",
+      "description": "Gardening tools, outdoor furniture, and decor",
+      "subcategories": [
+        "gardening tools",
+        "outdoor furniture",
+        "decor"
+      ],
+      "typical_brands": [
+        "gardena",
+        "outdoor",
+        "honda"
+      ],
+      "price_range": "low to mid"
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "description": "Miscellaneous products that do not fit into other categories",
+      "subcategories": [],
+      "typical_brands": [],
+      "price_range": "varies"
+    }
+  ]
+}

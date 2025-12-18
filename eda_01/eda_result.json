@@ -1,0 +1,306 @@
+{
+  "basic_stats": {
+    "total_interactions": 8350311,
+    "unique_users": 638257,
+    "unique_items": 29502,
+    "unique_sessions": 2889552,
+    "unique_categories": 24,
+    "unique_brands": 1859,
+    "date_range": {
+      "start": "2019-11-01 00:00:17+00:00",
+      "end": "2020-02-29 23:59:33+00:00",
+      "days": 120
+    },
+    "price_stats": {
+      "min": 0.77,
+      "max": 2574.07,
+      "mean": 150.915947898228,
+      "median": 79.02,
+      "std": 229.2732488438283
+    },
+    "sparsity": 0.9995565388228742
+  },
+  "event_type": {
+    "distribution": {
+      "view": 8331873,
+      "cart": 16362,
+      "purchase": 2076
+    },
+    "percentage": {
+      "view": 99.77919385277985,
+      "cart": 0.19594479774465884,
+      "purchase": 0.0248613494754866
+    },
+    "conversion_rate": {
+      "view_to_cart": 0.196378413353156,
+      "cart_to_purchase": 12.687935460212687,
+      "view_to_purchase": 0.02491636634403813
+    }
+  },
+  "user_behavior": {
+    "interactions_per_user": {
+      "min": 1,
+      "max": 37207,
+      "mean": 13.082991647565166,
+      "median": 6.0,
+      "std": 58.80425063165993
+    },
+    "interaction_distribution": {
+      "1_interaction": 107422,
+      "2-5_interactions": 195481,
+      "6-10_interactions": 116162,
+      "11-50_interactions": 193295,
+      "50+_interactions": 25897
+    },
+    "users_with_purchase": 1681,
+    "users_without_purchase": 636576,
+    "purchase_user_ratio": 0.2633735313517909
+  },
+  "item_popularity": {
+    "interactions_per_item": {
+      "min": 1,
+      "max": 143759,
+      "mean": 283.0422005287777,
+      "median": 77.0,
+      "std": 1262.4426265208185
+    },
+    "interaction_distribution": {
+      "1-5_interactions": 199,
+      "6-50_interactions": 11175,
+      "51-500_interactions": 14685,
+      "500+_interactions": 3443
+    },
+    "top_10_items": [
+      {
+        "item_id": "2e0d2baf-84f8-4609-8411-40106770595a",
+        "count": 143759
+      },
+      {
+        "item_id": "fb744b46-11e3-4239-bb72-8ece03a1826a",
+        "count": 72997
+      },
+      {
+        "item_id": "e6503c75-8483-45c3-a1b7-a2631b1e7f3b",
+        "count": 34280
+      },
+      {
+        "item_id": "c2d911d7-9cb5-4d05-9116-a52a4a4977f1",
+        "count": 30247
+      },
+      {
+        "item_id": "b4d3d2b6-fd6c-4a3b-b7ed-cb9f199a4734",
+        "count": 26946
+      },
+      {
+        "item_id": "76ed68bf-7b75-45f6-9d44-d43c45d5013c",
+        "count": 25345
+      },
+      {
+        "item_id": "1dc96fe9-67b0-4088-90f4-61f5c505091d",
+        "count": 24573
+      },
+      {
+        "item_id": "5e6a67eb-3cb2-4184-9db5-d2c5a9afd649",
+        "count": 23845
+      },
+      {
+        "item_id": "49a9ea33-3cbd-4087-8168-fbee578948d8",
+        "count": 23472
+      },
+      {
+        "item_id": "468161da-a9e8-4c39-ac98-5a781fc04f7c",
+        "count": 21288
+      }
+    ],
+    "items_never_purchased": 28506,
+    "items_purchased_ratio": 3.3760423022167987
+  },
+  "category": {
+    "total_main_categories": 1,
+    "total_sub_categories": 24,
+    "null_category_count": 0,
+    "null_category_ratio": 0.0,
+    "top_10_categories": {
+      "apparel": 8350311
+    },
+    "category_conversion_rate": {
+      "apparel": 0.02491636634403813
+    },
+    "top_purchased_categories": {
+      "apparel": 2076
+    }
+  },
+  "brand": {
+    "total_brands": 1859,
+    "null_brand_count": 0,
+    "null_brand_ratio": 0.0,
+    "top_10_brands": {
+      "respect": 723404,
+      "sony": 425834,
+      "xiaomi": 241872,
+      "baden": 224849,
+      "samsung": 217397,
+      "rieker": 184334,
+      "luminarc": 171959,
+      "apple": 140224,
+      "defacto": 137947,
+      "nika": 126107
+    },
+    "top_purchased_brands": {
+      "xiaomi": 224,
+      "sony": 180,
+      "samsung": 112,
+      "iqos": 101,
+      "respect": 74,
+      "apple": 51,
+      "defacto": 50,
+      "luminarc": 43,
+      "glo": 43,
+      "lg": 40
+    }
+  },
+  "price": {
+    "by_event_type": {
+      "cart": {
+        "mean": 149.4234427331622,
+        "median": 65.64,
+        "std": 208.82934458951792
+      },
+      "purchase": {
+        "mean": 122.29131502890174,
+        "median": 64.24,
+        "std": 152.5116973367449
+      },
+      "view": {
+        "mean": 150.9260110745807,
+        "median": 79.02,
+        "std": 229.32708695000144
+      }
+    },
+    "price_range_distribution": {
+      "0-50": {
+        "view": 2448129,
+        "cart": 6651,
+        "purchase": 870
+      },
+      "50-100": {
+        "view": 2782104,
+        "cart": 3489,
+        "purchase": 528
+      },
+      "100-200": {
+        "view": 1522707,
+        "cart": 2545,
+        "purchase": 303
+      },
+      "200-500": {
+        "view": 1095597,
+        "cart": 2801,
+        "purchase": 326
+      },
+      "500-1000": {
+        "view": 356046,
+        "cart": 658,
+        "purchase": 41
+      },
+      "1000+": {
+        "view": 127290,
+        "cart": 218,
+        "purchase": 8
+      }
+    }
+  },
+  "time": {
+    "daily_interactions": {
+      "min": 7201,
+      "max": 158154,
+      "mean": 69010.8347107438,
+      "std": 29872.05660265881
+    },
+    "hourly_distribution": {
+      "0": 66439,
+      "1": 93868,
+      "2": 166288,
+      "3": 248717,
+      "4": 333999,
+      "5": 375068,
+      "6": 402260,
+      "7": 414099,
+      "8": 434319,
+      "9": 439103,
+      "10": 438929,
+      "11": 423499,
+      "12": 417717,
+      "13": 453971,
+      "14": 508367,
+      "15": 568591,
+      "16": 609308,
+      "17": 596282,
+      "18": 493843,
+      "19": 359707,
+      "20": 221788,
+      "21": 136768,
+      "22": 83895,
+      "23": 63486
+    },
+    "dayofweek_distribution": {
+      "Mon": 1182197,
+      "Tue": 1141453,
+      "Wed": 1119560,
+      "Thu": 1103642,
+      "Fri": 1210477,
+      "Sat": 1277313,
+      "Sun": 1315669
+    },
+    "dayofweek_conversion": {
+      "Mon": 0.005674758420452168,
+      "Tue": 0.005262913215438229,
+      "Wed": 0.0071538050194672916,
+      "Thu": 0.07202291638248534,
+      "Fri": 0.04189032366703746,
+      "Sat": 0.03477215213719223,
+      "Sun": 0.009819743011996833
+    }
+  },
+  "session": {
+    "total_sessions": 2889552,
+    "avg_session_length": 2.889828942341235,
+    "median_session_length": 1.0,
+    "max_session_length": 1674,
+    "sessions_with_purchase": 1980,
+    "session_purchase_ratio": 0.06852273293576305,
+    "avg_unique_items_per_session": 2.5919997286776635
+  },
+  "cold_start": {
+    "users_with_less_than_5_interactions": {
+      "count": 268279,
+      "ratio": 42.03306818413272
+    },
+    "items_with_less_than_5_interactions": {
+      "count": 152,
+      "ratio": 0.5152193071656158
+    },
+    "filtered_interactions_estimate": {
+      "users_remaining": 369978,
+      "items_remaining": 29350
+    }
+  },
+  "insights": {
+    "data_quality": {
+      "null_category_issue": false,
+      "null_brand_issue": false
+    },
+    "event_weighting_suggestion": {
+      "view_weight": 1,
+      "cart_weight": 3,
+      "purchase_weight": 5
+    },
+    "cold_start_severity": {
+      "is_severe": true,
+      "affected_users_ratio": 42.03306818413272
+    },
+    "long_tail_issue": {
+      "top_10_percent_items_cover": 63.43715820883797
+    }
+  }
+}
