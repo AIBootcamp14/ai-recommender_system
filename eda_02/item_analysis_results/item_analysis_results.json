@@ -1,0 +1,183 @@
+{
+  "overall_item_stats": {
+    "total_unique_items": 29502,
+    "items_with_view": 29502,
+    "items_with_cart": 3854,
+    "items_with_purchase": 996,
+    "items_with_no_view": 0,
+    "items_with_no_activity": 0,
+    "activity_coverage": {
+      "view_rate": 100.0,
+      "cart_rate": 13.063521117212392,
+      "purchase_rate": 3.3760423022167987
+    },
+    "total_events": {
+      "view": 8331873,
+      "cart": 16362,
+      "purchase": 2076,
+      "total": 8350311
+    },
+    "avg_events_per_item": {
+      "view": 282.417225950783,
+      "cart": 0.5546064673581452,
+      "purchase": 0.07036811063656702,
+      "total": 283.0422005287777
+    }
+  },
+  "item_activity_segments": {
+    "View Only": 25235,
+    "View + Cart": 3271,
+    "View + Cart + Purchase": 583,
+    "View + Purchase (no Cart)": 413,
+    "Cart Only": 0,
+    "Purchase Only": 0
+  },
+  "no_view_items_stats": {
+    "total_no_view_items": 0,
+    "no_view_with_cart": 0,
+    "no_view_with_purchase": 0,
+    "no_view_cart_events": 0,
+    "no_view_purchase_events": 0
+  },
+  "viewing_behavior_stats": {
+    "items_analyzed": 29502,
+    "total_views": {
+      "mean": 282.417225950783,
+      "median": 77.0,
+      "std": 1249.9615653135304,
+      "min": 1,
+      "max": 141400,
+      "percentiles": {
+        "25%": 30.0,
+        "50%": 77.0,
+        "75%": 221.0,
+        "90%": 578.0,
+        "99%": 3342.8599999999715
+      }
+    },
+    "unique_viewers": {
+      "mean": 201.22137482204596,
+      "median": 62.0,
+      "max": 59905
+    },
+    "views_per_user": {
+      "mean": 1.2933709954153116,
+      "median": 1.22,
+      "max": 34.0
+    },
+    "view_span_hours": {
+      "mean": 1197.8743138318307,
+      "median": 1033.1480555555554,
+      "max": 2900.803888888889
+    },
+    "conversion_rates": {
+      "items_with_cart_after_view": 3854,
+      "items_with_purchase_after_view": 996,
+      "cart_conversion_rate": 13.063521117212392,
+      "purchase_conversion_rate": 3.3760423022167987
+    }
+  },
+  "item_conversion_analysis": {
+    "segments": {
+      "view_only": 25235,
+      "view_and_cart_only": 3271,
+      "view_and_purchase": 996
+    },
+    "conversion_by_view_count": {
+      "1-10": {
+        "item_count": 768,
+        "cart_conversion_rate": 2.34375,
+        "purchase_conversion_rate": 0.13020833333333331
+      },
+      "11-50": {
+        "item_count": 10616,
+        "cart_conversion_rate": 1.7897513187641296,
+        "purchase_conversion_rate": 0.555764883195177
+      },
+      "51-100": {
+        "item_count": 5457,
+        "cart_conversion_rate": 5.5891515484698555,
+        "purchase_conversion_rate": 0.9345794392523363
+      },
+      "101-500": {
+        "item_count": 9227,
+        "cart_conversion_rate": 15.432968462122032,
+        "purchase_conversion_rate": 2.81781727538745
+      },
+      "501-1000": {
+        "item_count": 1887,
+        "cart_conversion_rate": 43.031266560678326,
+        "purchase_conversion_rate": 8.797032326444091
+      },
+      "1000+": {
+        "item_count": 1547,
+        "cart_conversion_rate": 71.42857142857143,
+        "purchase_conversion_rate": 29.67032967032967
+      }
+    }
+  },
+  "session_viewing_stats": {
+    "total_sessions_with_views": 2878795,
+    "avg_views_per_session_per_item": {
+      "mean": 1.0932052520026692,
+      "median": 1.0769230769230769,
+      "max": 187.0
+    },
+    "session_duration_per_item_seconds": {
+      "mean": 486.03078633754586,
+      "median": 0.0
+    },
+    "unique_sessions_per_item": {
+      "mean": 253.43414005830113,
+      "median": 71.0,
+      "max": 124880
+    }
+  },
+  "popularity_tiers": {
+    "top_1%": {
+      "item_count": 295,
+      "total_interactions": 2092788,
+      "total_views": 2083765,
+      "total_carts": 8035,
+      "total_purchases": 988,
+      "avg_interactions": 7094.196610169492,
+      "interaction_share": 25.06239587962652
+    },
+    "top_5%": {
+      "item_count": 1180,
+      "total_interactions": 2070820,
+      "total_views": 2066815,
+      "total_carts": 3573,
+      "total_purchases": 432,
+      "avg_interactions": 1754.9322033898304,
+      "interaction_share": 24.799315857816552
+    },
+    "top_20%": {
+      "item_count": 4425,
+      "total_interactions": 2327894,
+      "total_views": 2324575,
+      "total_carts": 2944,
+      "total_purchases": 375,
+      "avg_interactions": 526.0777401129943,
+      "interaction_share": 27.87793173212351
+    },
+    "middle_60%": {
+      "item_count": 17701,
+      "total_interactions": 1763184,
+      "total_views": 1761226,
+      "total_carts": 1699,
+      "total_purchases": 259,
+      "avg_interactions": 99.60928761086944,
+      "interaction_share": 21.115189601920214
+    },
+    "bottom_20%": {
+      "item_count": 5901,
+      "total_interactions": 95625,
+      "total_views": 95492,
+      "total_carts": 111,
+      "total_purchases": 22,
+      "avg_interactions": 16.204880528723944,
+      "interaction_share": 1.1451669285132016
+    }
+  }
+}

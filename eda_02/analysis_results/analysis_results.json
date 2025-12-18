@@ -1,0 +1,646 @@
+{
+  "user_interaction_stats": {
+    "total_users": 638257,
+    "interaction_per_user": {
+      "mean": 13.082991647565166,
+      "median": 6.0,
+      "std": 58.80425063165993,
+      "min": 1,
+      "max": 37207,
+      "percentiles": {
+        "10%": 1.0,
+        "25%": 2.0,
+        "50%": 6.0,
+        "75%": 15.0,
+        "90%": 29.0,
+        "95%": 45.0,
+        "99%": 102.0
+      }
+    },
+    "users_by_interaction_count": {
+      "1": 107422,
+      "2-5": 195481,
+      "6-10": 116162,
+      "11-20": 109667,
+      "21-50": 83628,
+      "51-100": 19280,
+      "100+": 6617
+    },
+    "event_type_per_user": {
+      "view": {
+        "users_with_event": 637440,
+        "mean": 13.054103597767044,
+        "median": 6.0,
+        "max": 37207
+      },
+      "cart": {
+        "users_with_event": 10481,
+        "mean": 0.025635441522772175,
+        "median": 0.0,
+        "max": 69
+      },
+      "purchase": {
+        "users_with_event": 1681,
+        "mean": 0.0032526082753498984,
+        "median": 0.0,
+        "max": 11
+      }
+    }
+  },
+  "purchase_brand_stats": {
+    "total_purchases": 2076,
+    "unique_brands_purchased": 32,
+    "top_20_brands": {
+      "xiaomi": 224,
+      "sony": 180,
+      "samsung": 112,
+      "iqos": 101,
+      "respect": 74,
+      "apple": 51,
+      "defacto": 50,
+      "luminarc": 43,
+      "glo": 43,
+      "lg": 40,
+      "nika": 32,
+      "omron": 28,
+      "starline": 28,
+      "bq": 27,
+      "montale": 26,
+      "lanvin": 22,
+      "intex": 22,
+      "prestigio": 21,
+      "kingston": 20,
+      "lenovo": 19
+    },
+    "brand_concentration": {
+      "top_1_share": 10.789980732177264,
+      "top_5_share": 33.285163776493256,
+      "top_10_share": 44.21965317919075,
+      "top_20_share": 56.02119460500964
+    },
+    "brands_with_single_purchase": 151
+  },
+  "overall_brand_stats": {
+    "total_brands": 1859,
+    "top_20_brands_by_interaction": {
+      "respect": {
+        "interactions": 723404,
+        "unique_items": 1799,
+        "views": 723018,
+        "carts": 312,
+        "purchases": 74
+      },
+      "sony": {
+        "interactions": 425834,
+        "unique_items": 222,
+        "views": 423797,
+        "carts": 1857,
+        "purchases": 180
+      },
+      "xiaomi": {
+        "interactions": 241872,
+        "unique_items": 64,
+        "views": 238988,
+        "carts": 2660,
+        "purchases": 224
+      },
+      "baden": {
+        "interactions": 224849,
+        "unique_items": 485,
+        "views": 224753,
+        "carts": 85,
+        "purchases": 11
+      },
+      "samsung": {
+        "interactions": 217397,
+        "unique_items": 43,
+        "views": 216537,
+        "carts": 748,
+        "purchases": 112
+      },
+      "rieker": {
+        "interactions": 184334,
+        "unique_items": 928,
+        "views": 184277,
+        "carts": 50,
+        "purchases": 7
+      },
+      "luminarc": {
+        "interactions": 171959,
+        "unique_items": 119,
+        "views": 171754,
+        "carts": 162,
+        "purchases": 43
+      },
+      "apple": {
+        "interactions": 140224,
+        "unique_items": 91,
+        "views": 139517,
+        "carts": 656,
+        "purchases": 51
+      },
+      "defacto": {
+        "interactions": 137947,
+        "unique_items": 1790,
+        "views": 137850,
+        "carts": 47,
+        "purchases": 50
+      },
+      "nika": {
+        "interactions": 126107,
+        "unique_items": 176,
+        "views": 125728,
+        "carts": 347,
+        "purchases": 32
+      },
+      "nike": {
+        "interactions": 117992,
+        "unique_items": 511,
+        "views": 117936,
+        "carts": 50,
+        "purchases": 6
+      },
+      "starline": {
+        "interactions": 94343,
+        "unique_items": 62,
+        "views": 93957,
+        "carts": 358,
+        "purchases": 28
+      },
+      "conceptclub": {
+        "interactions": 93008,
+        "unique_items": 507,
+        "views": 92994,
+        "carts": 10,
+        "purchases": 4
+      },
+      "greyder": {
+        "interactions": 90521,
+        "unique_items": 371,
+        "views": 90485,
+        "carts": 31,
+        "purchases": 5
+      },
+      "intex": {
+        "interactions": 84748,
+        "unique_items": 73,
+        "views": 84637,
+        "carts": 89,
+        "purchases": 22
+      },
+      "intel": {
+        "interactions": 82422,
+        "unique_items": 91,
+        "views": 82300,
+        "carts": 109,
+        "purchases": 13
+      },
+      "lg": {
+        "interactions": 79939,
+        "unique_items": 22,
+        "views": 79767,
+        "carts": 132,
+        "purchases": 40
+      },
+      "huawei": {
+        "interactions": 72560,
+        "unique_items": 20,
+        "views": 72391,
+        "carts": 155,
+        "purchases": 14
+      },
+      "amd": {
+        "interactions": 65864,
+        "unique_items": 53,
+        "views": 65786,
+        "carts": 66,
+        "purchases": 12
+      },
+      "montale": {
+        "interactions": 62966,
+        "unique_items": 112,
+        "views": 62643,
+        "carts": 297,
+        "purchases": 26
+      }
+    },
+    "brand_item_coverage": {
+      "top_10_brands_items": 5717,
+      "top_20_brands_items": 7539,
+      "total_items": 29502
+    }
+  },
+  "brand_view_patterns": {
+    "respect": {
+      "total_views": 723018,
+      "unique_viewers": 108622,
+      "views_per_user": {
+        "mean": 6.656275892544788,
+        "median": 2.0,
+        "max": 412
+      },
+      "peak_hour": 16,
+      "peak_day": 5,
+      "hourly_distribution": {
+        "0": 4807,
+        "1": 8985,
+        "2": 17878,
+        "3": 24174,
+        "4": 29179,
+        "5": 32190,
+        "6": 33172,
+        "7": 33067,
+        "8": 34966,
+        "9": 35918,
+        "10": 36266,
+        "11": 35260,
+        "12": 36169,
+        "13": 40876,
+        "14": 47575,
+        "15": 54857,
+        "16": 58823,
+        "17": 56364,
+        "18": 41365,
+        "19": 28140,
+        "20": 15628,
+        "21": 8833,
+        "22": 4876,
+        "23": 3650
+      }
+    },
+    "sony": {
+      "total_views": 423797,
+      "unique_viewers": 91467,
+      "views_per_user": {
+        "mean": 4.633332240042857,
+        "median": 2.0,
+        "max": 1429
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 2683,
+        "1": 3831,
+        "2": 6770,
+        "3": 12271,
+        "4": 16945,
+        "5": 20190,
+        "6": 22707,
+        "7": 23459,
+        "8": 24449,
+        "9": 23407,
+        "10": 23335,
+        "11": 23085,
+        "12": 23625,
+        "13": 24975,
+        "14": 26414,
+        "15": 28204,
+        "16": 28902,
+        "17": 26807,
+        "18": 22292,
+        "19": 15897,
+        "20": 10576,
+        "21": 6205,
+        "22": 4035,
+        "23": 2733
+      }
+    },
+    "xiaomi": {
+      "total_views": 238988,
+      "unique_viewers": 87576,
+      "views_per_user": {
+        "mean": 2.7289211656161507,
+        "median": 1.0,
+        "max": 298
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 1619,
+        "1": 2441,
+        "2": 4461,
+        "3": 7187,
+        "4": 10309,
+        "5": 12111,
+        "6": 13132,
+        "7": 12998,
+        "8": 13409,
+        "9": 13271,
+        "10": 13157,
+        "11": 12534,
+        "12": 12366,
+        "13": 13051,
+        "14": 14241,
+        "15": 15573,
+        "16": 16276,
+        "17": 15699,
+        "18": 13298,
+        "19": 9180,
+        "20": 5655,
+        "21": 3389,
+        "22": 2113,
+        "23": 1518
+      }
+    },
+    "baden": {
+      "total_views": 224753,
+      "unique_viewers": 56338,
+      "views_per_user": {
+        "mean": 3.9893677446838725,
+        "median": 2.0,
+        "max": 191
+      },
+      "peak_hour": 16,
+      "peak_day": 5,
+      "hourly_distribution": {
+        "0": 1600,
+        "1": 3165,
+        "2": 5915,
+        "3": 8082,
+        "4": 9493,
+        "5": 10027,
+        "6": 10704,
+        "7": 10286,
+        "8": 10635,
+        "9": 11664,
+        "10": 11241,
+        "11": 10858,
+        "12": 10525,
+        "13": 12469,
+        "14": 14417,
+        "15": 17404,
+        "16": 18373,
+        "17": 17646,
+        "18": 12267,
+        "19": 8338,
+        "20": 4665,
+        "21": 2453,
+        "22": 1373,
+        "23": 1153
+      }
+    },
+    "samsung": {
+      "total_views": 216537,
+      "unique_viewers": 68216,
+      "views_per_user": {
+        "mean": 3.1742846253078456,
+        "median": 2.0,
+        "max": 2166
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 1944,
+        "1": 2227,
+        "2": 3974,
+        "3": 6473,
+        "4": 8911,
+        "5": 10724,
+        "6": 11404,
+        "7": 11735,
+        "8": 12221,
+        "9": 11827,
+        "10": 11645,
+        "11": 11252,
+        "12": 11623,
+        "13": 11783,
+        "14": 13091,
+        "15": 14239,
+        "16": 15014,
+        "17": 13476,
+        "18": 11423,
+        "19": 7806,
+        "20": 5543,
+        "21": 3631,
+        "22": 2657,
+        "23": 1914
+      }
+    },
+    "rieker": {
+      "total_views": 184277,
+      "unique_viewers": 51368,
+      "views_per_user": {
+        "mean": 3.5873890359757046,
+        "median": 2.0,
+        "max": 371
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 1481,
+        "1": 2588,
+        "2": 4634,
+        "3": 6506,
+        "4": 7526,
+        "5": 8007,
+        "6": 8002,
+        "7": 7788,
+        "8": 8619,
+        "9": 8705,
+        "10": 9018,
+        "11": 9113,
+        "12": 9644,
+        "13": 10700,
+        "14": 12325,
+        "15": 13786,
+        "16": 14636,
+        "17": 14210,
+        "18": 10582,
+        "19": 7302,
+        "20": 4300,
+        "21": 2489,
+        "22": 1317,
+        "23": 999
+      }
+    },
+    "luminarc": {
+      "total_views": 171754,
+      "unique_viewers": 35079,
+      "views_per_user": {
+        "mean": 4.896205707118219,
+        "median": 2.0,
+        "max": 340
+      },
+      "peak_hour": 17,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 1604,
+        "1": 2399,
+        "2": 3789,
+        "3": 5188,
+        "4": 6717,
+        "5": 7220,
+        "6": 8150,
+        "7": 8098,
+        "8": 8717,
+        "9": 9284,
+        "10": 9607,
+        "11": 8219,
+        "12": 8336,
+        "13": 8950,
+        "14": 10297,
+        "15": 11463,
+        "16": 12253,
+        "17": 12686,
+        "18": 10632,
+        "19": 7788,
+        "20": 5014,
+        "21": 2549,
+        "22": 1497,
+        "23": 1297
+      }
+    },
+    "apple": {
+      "total_views": 139517,
+      "unique_viewers": 33201,
+      "views_per_user": {
+        "mean": 4.202192705039005,
+        "median": 2.0,
+        "max": 720
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 2155,
+        "1": 2002,
+        "2": 2670,
+        "3": 3987,
+        "4": 5174,
+        "5": 6002,
+        "6": 6694,
+        "7": 6421,
+        "8": 7111,
+        "9": 6976,
+        "10": 6797,
+        "11": 6735,
+        "12": 6647,
+        "13": 7299,
+        "14": 7614,
+        "15": 8311,
+        "16": 8908,
+        "17": 8664,
+        "18": 8143,
+        "19": 7270,
+        "20": 4952,
+        "21": 3857,
+        "22": 2896,
+        "23": 2232
+      }
+    },
+    "defacto": {
+      "total_views": 137850,
+      "unique_viewers": 33776,
+      "views_per_user": {
+        "mean": 4.0813003315964,
+        "median": 2.0,
+        "max": 259
+      },
+      "peak_hour": 17,
+      "peak_day": 4,
+      "hourly_distribution": {
+        "0": 809,
+        "1": 1391,
+        "2": 2423,
+        "3": 3444,
+        "4": 4124,
+        "5": 4831,
+        "6": 6179,
+        "7": 6951,
+        "8": 7651,
+        "9": 7390,
+        "10": 7199,
+        "11": 6974,
+        "12": 6538,
+        "13": 7041,
+        "14": 8503,
+        "15": 9834,
+        "16": 11203,
+        "17": 11328,
+        "18": 9705,
+        "19": 6307,
+        "20": 3734,
+        "21": 2088,
+        "22": 1351,
+        "23": 852
+      }
+    },
+    "nika": {
+      "total_views": 125728,
+      "unique_viewers": 29497,
+      "views_per_user": {
+        "mean": 4.2623995660575655,
+        "median": 2.0,
+        "max": 822
+      },
+      "peak_hour": 16,
+      "peak_day": 6,
+      "hourly_distribution": {
+        "0": 745,
+        "1": 1193,
+        "2": 2377,
+        "3": 3786,
+        "4": 5323,
+        "5": 6368,
+        "6": 7358,
+        "7": 7716,
+        "8": 8044,
+        "9": 7639,
+        "10": 7601,
+        "11": 7099,
+        "12": 6638,
+        "13": 6819,
+        "14": 6816,
+        "15": 7549,
+        "16": 8054,
+        "17": 7676,
+        "18": 6485,
+        "19": 5005,
+        "20": 2576,
+        "21": 1504,
+        "22": 781,
+        "23": 576
+      }
+    }
+  },
+  "user_journey_stats": {
+    "total_purchasing_users": 1681,
+    "conversion_funnel": {
+      "total_users": 638257,
+      "users_with_view": 637440,
+      "users_with_cart": 10481,
+      "users_with_purchase": 1681
+    },
+    "avg_events_before_purchase": {
+      "view": {
+        "mean": 30.843,
+        "median": 15.0
+      },
+      "cart": {
+        "mean": 0.176,
+        "median": 0.0
+      }
+    },
+    "conversion_rates": {
+      "view_to_cart": 1.6442331827309236,
+      "cart_to_purchase": 16.038545940272876,
+      "view_to_purchase": 0.26371109437751006
+    }
+  },
+  "time_stats": {
+    "date_range": {
+      "start": "2019-11-01 00:00:17+00:00",
+      "end": "2020-02-29 23:59:33+00:00",
+      "total_days": 121
+    },
+    "peak_hours": {
+      "view": 16,
+      "cart": 12,
+      "purchase": 6
+    },
+    "avg_daily_events": {
+      "cart": 135.22314049586777,
+      "purchase": 17.15702479338843,
+      "view": 68858.45454545454
+    }
+  }
+}
